@@ -1,8 +1,5 @@
-var React = require('react');
-var Router = require('react-router');
+var render = require('react-dom').render;
 
 var routes = require('./routes');
 
-Router.run(routes, Router.HistoryLocation, function(Root) {
-  React.render(<Root/>, document.body);
-});
+render(routes, document.getElementById('casual-data-app-container'));

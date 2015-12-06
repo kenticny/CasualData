@@ -1,13 +1,17 @@
 var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
+var rRouter = require('react-router');
+var Route = rRouter.Route;
+var Router = rRouter.Router;
 
+var Main = require('./pages/main');
 var Dashboard = require('./pages/dashboard');
 
 var routes = (
-    <Route name="app">
-        <Route name="dashboard" path="/dashboard" handler={Dashboard} />
-    </Route>
+    <Router>
+        <Route name="app" path="/" component={Main}>
+            <Route name="dashboard" path="/dashboard" component={Dashboard} />
+        </Route>
+    </Router>
 );
 
 module.exports = routes;

@@ -1,5 +1,5 @@
-var render = require('react-dom').render;
+var ReactDOM = require('react-dom');
 
 var routes = require('./routes');
 
-render(routes, document.getElementById('casual-data-app-container'));
+ReactDOM.render(routes, document.getElementById('casual-data-app-container'));

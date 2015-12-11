@@ -1,0 +1,22 @@
+#casual-data-app {
+    width: 900px;
+    margin: 0 auto;
+
+    #header {
+
+        margin: 20px 0;
+        overflow: hidden;
+
+        .logo {
+            float: left;
+            font-size: 30px;
+            line-height: 30px;
+            padding: 10px;
+        }
+        .menu-bar {
+            .menu-item {
+                float: right;
+            }
+        }
+    }
+}

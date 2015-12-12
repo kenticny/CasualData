@@ -13,10 +13,12 @@
     "ejs": "^2.3.4",
     "express": "^4.13.3",
     "history": "^1.13.1",
+    "mongoose": "^4.3.1",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "react-router": "^1.0.0",
-    "request": "^2.67.0"
+    "request": "^2.67.0",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {
     "babel-core": "^6.3.15",

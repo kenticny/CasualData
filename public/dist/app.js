@@ -64078,10 +64078,43 @@
 	module.exports = _react2.default.createClass({
 	    displayName: 'exports',
 
-	    popConfirmController: function popConfirmController() {
+	    getInitialState: function getInitialState() {
+	        return {
+	            visible: false
+	        };
+	    },
+	    removePopConfirmCtrl: function removePopConfirmCtrl() {
+	        var me = this;
 	        return {
 	            onConfirm: function onConfirm() {},
 	            onCannel: function onCannel() {}
+	        };
+	    },
+	    createModalCtrl: function createModalCtrl() {
+	        var me = this;
+	        return {
+	            showModal: function showModal() {
+	                me.setState({
+	                    visible: true
+	                });
+	            },
+	            handleOk: function handleOk() {
+	                me.setState({
+	                    confirmLoading: true
+	                });
+
+	                setTimeout(function () {
+	                    me.setState({
+	                        confirmLoading: false,
+	                        visible: false
+	                    });
+	                }, 2000);
+	            },
+	            handleCancel: function handleCancel() {
+	                me.setState({
+	                    visible: false
+	                });
+	            }
 	        };
 	    },
 	    render: function render() {
@@ -64131,8 +64164,8 @@
 	                        _antd.Popconfirm,
 	                        {
 	                            title: 'Confirm remove this record ?',
-	                            onConfirm: me.popConfirmController.onConfirm,
-	                            onCannel: me.popConfirmController.onCannel,
+	                            onConfirm: me.removePopConfirmCtrl().onConfirm,
+	                            onCannel: me.removePopConfirmCtrl().onCannel,
 	                            placement: 'right',
 	                            okText: 'ok',
 	                            cancelText: 'cancel' },
@@ -64179,9 +64212,22 @@
 	                    { className: 'r' },
 	                    _react2.default.createElement(
 	                        _antd.Button,
-	                        { type: 'primary' },
+	                        { type: 'primary', onClick: this.createModalCtrl().showModal },
 	                        _react2.default.createElement(_antd.Icon, { type: 'plus-circle-o' }),
 	                        'Create Project'
+	                    ),
+	                    _react2.default.createElement(
+	                        _antd.Modal,
+	                        { title: 'Create Project',
+	                            visible: this.state.visible,
+	                            onOk: this.createModalCtrl().handleOk,
+	                            confirmLoading: this.state.confirmLoading,
+	                            onCancel: this.createModalCtrl().handleCancel },
+	                        _react2.default.createElement(
+	                            'p',
+	                            null,
+	                            this.state.ModalText
+	                        )
 	                    )
 	                )
 	            ),

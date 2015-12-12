@@ -1,14 +1,47 @@
 import React from 'react';
-import { Button, Table, Icon, Popconfirm } from 'antd';
+import { Button, Table, Icon, Popconfirm, Modal } from 'antd';
 
 module.exports = React.createClass({
-    popConfirmController: function() {
+    getInitialState: function() {
+        return {
+            visible: false
+        };
+    },
+    removePopConfirmCtrl: function() {
+        var me = this;
         return {
             onConfirm: function() {
 
             },
             onCannel: function() {
 
+            }
+        }
+    },
+    createModalCtrl: function() {
+        var me = this;
+        return {
+            showModal: function() {
+                me.setState({
+                    visible: true
+                });
+            },
+            handleOk: function() {
+                me.setState({
+                    confirmLoading: true
+                });
+
+                setTimeout(function(){
+                    me.setState({
+                        confirmLoading: false,
+                        visible: false
+                    });
+                }, 2000)
+            },
+            handleCancel: function() {
+                me.setState({
+                    visible: false
+                });
             }
         }
     },
@@ -40,8 +73,8 @@ module.exports = React.createClass({
                         <span className="ant-divider"></span>
                         <Popconfirm
                             title="Confirm remove this record ?"
-                            onConfirm={me.popConfirmController.onConfirm} 
-                            onCannel={me.popConfirmController.onCannel}
+                            onConfirm={me.removePopConfirmCtrl().onConfirm} 
+                            onCannel={me.removePopConfirmCtrl().onCannel}
                             placement="right"
                             okText="ok"
                             cancelText="cancel">
@@ -78,9 +111,16 @@ module.exports = React.createClass({
             <div id="projects">
                 <div className="tools">
                     <div className="r">
-                        <Button type="primary">
+                        <Button type="primary" onClick={this.createModalCtrl().showModal}>
                             <Icon type="plus-circle-o" />Create Project
                         </Button>
+                        <Modal title="Create Project"
+                            visible={this.state.visible}
+                            onOk={this.createModalCtrl().handleOk}
+                            confirmLoading={this.state.confirmLoading}
+                            onCancel={this.createModalCtrl().handleCancel}>
+                            <p>{this.state.ModalText}</p>
+                        </Modal>
                     </div>
                 </div>
                 <Table columns={columns} dataSource={data} rowKey={rowKey} />

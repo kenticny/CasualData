@@ -1,10 +1,10 @@
 import React from 'react';
-import { Menu, Icon } from 'antd';
+import { Menu, Breadcrumb, Icon } from 'antd';
+const ReactRouter = require('react-router');
 
 module.exports = React.createClass({
 
     getInitialState: function() {
-        console.log(this.props)
         return {
             current: 'dashboard'
         }
@@ -36,7 +36,10 @@ module.exports = React.createClass({
                         </Menu.Item>
                     </Menu>
                 </div>
-                <div>{this.props.children}</div>
+                <div id="nav">
+                    <Breadcrumb {...this.props} router={ReactRouter} />
+                </div>
+                <div id="content">{this.props.children}</div>
             </div>
         );
     }

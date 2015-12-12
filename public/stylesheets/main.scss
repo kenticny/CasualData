@@ -4,7 +4,7 @@
 
     #header {
 
-        margin: 20px 0;
+        margin: 20px 0 5px 0;
         overflow: hidden;
 
         .logo {
@@ -19,4 +19,15 @@
             }
         }
     }
+
+    #nav {
+        padding: 15px;
+        float: left;
+    }
+
+    #content {
+        padding: 10px;
+    }
 }
+
+@import 'projects';

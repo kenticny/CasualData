@@ -5,8 +5,6 @@ module.exports = React.createClass({
     render: function() {
         return (
             <div>
-                <span>aaa</span>
-                <Datepicker />
             </div>
         );
     }

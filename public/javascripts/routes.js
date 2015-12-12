@@ -7,9 +7,9 @@ var Projects = require('./pages/projects');
 
 var routes = (
     <Router>
-        <Route name="App" path="/" component={Main}>
-            <Route name="Dashboard" path="/dashboard" component={Dashboard} />
-            <Route name="Projects" path="/projects" component={Projects} />
+        <Route name="App" breadcrumbName="Home" path="/" component={Main}>
+            <Route name="Dashboard" breadcrumbName="Dashboard" path="/dashboard" component={Dashboard} />
+            <Route name="Projects" breadcrumbName="Projects" path="/projects" component={Projects} />
         </Route>
     </Router>
 );

@@ -12,6 +12,16 @@ app.set('view engine', 'ejs');
 // static files
 app.use(express.static(path.join(__dirname, '/public')));
 
+// for Dev Environment
+app.use(function(req, res, next) {
+    req.session = {};
+    req.session.user = {
+        id: '566c6224a5b1729c39d42c42'
+    };
+    next();
+});
+
+
 // router
 app.use(routes);
 

@@ -1,6 +1,6 @@
 var _ = require('underscore');
 
-var Project = require('../project');
+var Project = require('../models/project');
 
 exports.createProject = function(data, callback) {
     var fields = ['name', 'owner'];

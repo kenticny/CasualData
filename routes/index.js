@@ -7,6 +7,8 @@ router.get('/', function(req, res, next) {
     res.render('index');
 });
 
+router.get('/projects', Project.listProjects);
+router.get('/project/:name', Project.findProjectByName);
 router.post('/project/create', Project.createProject);
 
 module.exports = router;

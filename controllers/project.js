@@ -12,3 +12,7 @@ exports.createProject = function(data, callback) {
 exports.listProjectsByUser = function(userId, callback) {
     Project.find({ owner: userId }, callback);
 };
+
+exports.findProjectByName = function(name, callback) {
+    Project.findOne({ name: name }, callback);
+};

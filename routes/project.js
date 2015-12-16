@@ -44,7 +44,7 @@ exports.createProject = function(req, res, next) {
         async.apply(createProject, projectData)
     ], function(err, result) {
         if(err) {
-            return next(messages.error.handle(err));
+            return next(err);
         }
         if(!result || !result._id) {
             return next(messages.error.OPERATE_FAILED());

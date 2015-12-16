@@ -3,6 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes');
+var messages = require('./messages');
 
 var app = express();
 
@@ -30,9 +31,11 @@ app.use(function(req, res, next) {
 // router
 app.use(routes);
 
+// handle error
 app.use(function(err, req, res, next) {
     if(err) {
-        return res.status(500).send(err);
+        return res.status(500)
+            .send(messages.error.handle(err));
     }
     next();
 });

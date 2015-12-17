@@ -6,8 +6,8 @@ var userSchema = new Schema({
     password: { type: String, length: 32 },
     email: { type: String },
     userType: { type: Number, default: 1 },
-    createTime: { type: Date, default: Date.now },
-    lastLoginTime: {type: Date, default: Date.now }
+    createTime: { type: Number, default: Date.now },
+    lastLoginTime: {type: Number, default: Date.now }
 });
 
 db.mongoose.model('User', userSchema);

@@ -14,7 +14,7 @@ var errors = {
         return { code: 9901, message: 'Request error.', detail: err };
     },
     MISSING_PARAMETERS: function(params) {
-        return { code: 9902, message: 'Missing parameters: ' + params.join("") };
+        return { code: 9902, message: 'Missing parameters: ' + params.join(", ") };
     },
     OPERATE_FAILED: function() {
         return { code: 9903, message: 'Operate failed.' };

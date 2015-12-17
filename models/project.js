@@ -7,7 +7,7 @@ var projectSchema = new Schema({
     owner: { type: ObjectId, ref: 'User'},
     reportNumber: { type: Number, default: 0 },
     dataCount: { type: Number, default: 0 },
-    createTime: { type: Date, default: Date.now }
+    createTime: { type: Number, default: Date.now }
 });
 
 db.mongoose.model('Project', projectSchema);
